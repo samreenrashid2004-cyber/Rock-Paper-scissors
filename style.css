@@ -1,0 +1,320 @@
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Color Palette */
+:root {
+    --red: #9b3932;
+    --beige: #d6ab9e;
+    --brown: #956f3e;
+    --gold: #c18a0a;
+    --dark: #281c1b;
+    --light: #fff1e9;
+}
+
+/* Universal Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--light);
+    background:
+        radial-gradient(circle at 10% 20%, #9b393255, transparent 35%),
+        radial-gradient(circle at 90% 80%, #c18a0a33, transparent 35%),
+        linear-gradient(135deg, #281c1b, #542a29, #281c1b);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Decoration */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    z-index: -1;
+    animation: float 7s ease-in-out infinite alternate;
+}
+
+body::before {
+    background: var(--red);
+    top: 10%;
+    left: -100px;
+}
+
+body::after {
+    background: var(--gold);
+    bottom: 5%;
+    right: -100px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(50px);
+    }
+}
+
+/* Game Heading */
+h1 {
+    background: linear-gradient(90deg, #762d2b, #9b3932, #762d2b);
+    color: var(--light);
+    padding: 20px 10px;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 25px #00000055;
+    border-bottom: 2px solid var(--gold);
+    animation: headingGlow 3s infinite alternate;
+}
+
+@keyframes headingGlow {
+    from {
+        text-shadow: 0 0 5px #d6ab9e;
+    }
+    to {
+        text-shadow: 0 0 18px #c18a0a;
+    }
+}
+
+/* Game Choices */
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+/* Individual Choice */
+.choice {
+    height: 210px;
+    width: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff22, #ffffff08);
+    border: 3px solid #d6ab9e88;
+    box-shadow:
+        0 10px 30px #00000055,
+        inset 0 0 20px #ffffff12;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Golden Hover Effect */
+.choice:hover {
+    transform: translateY(-15px) scale(1.08) rotate(5deg);
+    border-color: var(--gold);
+    background: linear-gradient(145deg, #9b3932, #956f3e);
+    box-shadow:
+        0 15px 40px #c18a0a66,
+        0 0 25px #c18a0a55;
+}
+
+/* Image Styling */
+.choice img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+}
+
+.choice:hover img {
+    transform: scale(1.12) rotate(-5deg);
+}
+
+/* Click Effect */
+.choice:active {
+    transform: scale(0.9);
+}
+
+/* Score Board */
+.score-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 4rem;
+}
+
+/* Score Cards */
+.score {
+    min-width: 150px;
+    padding: 20px 35px;
+    background: linear-gradient(145deg, #ffffff20, #ffffff08);
+    border: 1px solid #d6ab9e66;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px #00000044;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+.score:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 30px #c18a0a44;
+}
+
+.score p:first-child {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--gold);
+    text-shadow: 0 0 15px #c18a0a55;
+}
+
+.score p:last-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--beige);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Message Container */
+.msg-container {
+    margin-top: 4rem;
+    padding: 20px;
+}
+
+/* Game Message */
+#msg {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, var(--red), var(--brown));
+    border: 2px solid var(--gold);
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    box-shadow: 0 8px 30px #00000055;
+    transition: all 0.3s ease;
+    animation: messagePulse 2s infinite;
+}
+
+@keyframes messagePulse {
+    0%, 100% {
+        box-shadow: 0 8px 20px #00000044;
+    }
+    50% {
+        box-shadow: 0 8px 30px #c18a0a55;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .choices {
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .choice {
+        width: 140px;
+        height: 140px;
+    }
+
+    .score-board {
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .score {
+        min-width: 120px;
+        padding: 15px;
+    }
+
+    .score p:first-child {
+        font-size: 3rem;
+    }
+
+    #msg {
+        font-size: 1rem;
+        padding: 12px 22px;
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 400px) {
+
+    .choices {
+        gap: 1rem;
+    }
+
+    .choice {
+        width: 105px;
+        height: 105px;
+    }
+
+    .score-board {
+        gap: 1rem;
+    }
+
+    .score {
+        min-width: 110px;
+        padding: 12px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+.new-game-container {
+    margin: 35px 0 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#new-game-btn {
+    padding: 14px 35px;
+    border: 2px solid var(--gold);
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--red), var(--brown));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px #00000055;
+    transition: all 0.3s ease;
+}
+
+#new-game-btn:hover {
+    background: linear-gradient(135deg, var(--gold), var(--brown));
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px #c18a0a88;
+}
+
+#new-game-btn:active {
+    transform: scale(0.95);
+}

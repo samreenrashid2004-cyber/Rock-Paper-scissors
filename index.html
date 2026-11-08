@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play the classic Rock Paper Scissors game and challenge the computer!">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Rock Paper Scissors Game</h1>
+    </header>
+
+    <main>
+        <!-- Game Choices -->
+        <section class="choices" aria-label="Choose your move">
+
+            <div class="choice" id="rock">
+                <img src="rock.png" alt="Rock" title="Choose Rock">
+            </div>
+
+            <div class="choice" id="paper">
+                <img src="paper.png" alt="Paper" title="Choose Paper">
+            </div>
+
+            <div class="choice" id="scissors">
+                <img src="scissors.png" alt="Scissors" title="Choose Scissors">
+            </div>
+
+        </section>
+
+        <!-- Score Board -->
+        <section class="score-board">
+
+            <div class="score">
+                <p id="user-score">0</p>
+                <p>You</p>
+            </div>
+
+            <div class="score">
+                <p id="comp-score">0</p>
+                <p>Computer</p>
+            </div>
+
+        </section>
+
+        <!-- Game Message -->
+        <section class="msg-container" aria-live="polite">
+            <p id="msg">Make your move!</p>
+        </section>
+        
+<div class="new-game-container">
+    <button id="new-game-btn"> New Game</button>
+</div>
+
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
